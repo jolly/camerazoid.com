@@ -12,56 +12,6 @@ body {
     .body-font;
 }
 
-.avatar{
-  width: 100px;
-  border-radius:50%;
-}
-
-.subscribe-button{
-  margin-top: 10px;
-  background-color:transparent;
-}
-
-.subscribe-box{
-  background-color:transparent;
-  width:350px;
-  margin-top: 10px;
-  &::-webkit-input-placeholder {
-     color: rgba(255,255,255,.4);
-  }
-
-  &:-moz-placeholder { /* Firefox 18- */
-     color: rgba(255,255,255,.4);
-  }
-
-  &::-moz-placeholder {  /* Firefox 19+ */
-     color: rgba(255,255,255,.4);
-  }
-
-  &:-ms-input-placeholder {  
-     color: rgba(255,255,255,.4);
-  }
-}
-
-.book-holder{
-  position:relative;
-  width: 100%;
-  padding-bottom: 61.775701%;
-}
-.book{
-  background-image: url(../img/book.png);
-  padding-bottom: 120%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-
 a {
     .transition-all;
     color: @theme-primary;
@@ -185,10 +135,11 @@ p {
 header {
     position: relative;
     width: 100%;
+    min-height: auto;
     overflow-y: hidden;
-    background: @theme-secondary; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, @theme-secondary , @theme-tertiary); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, @theme-secondary , @theme-tertiary); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background:  @theme-secondary; /* fallback for old browsers */
+    background:  -webkit-linear-gradient(to left, @theme-secondary , @theme-tertiary); /* Chrome 10-25, Safari 5.1-6 */
+    background:  linear-gradient(to left, @theme-secondary , @theme-tertiary); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: white;
     .header-content {
         text-align: center;
@@ -212,7 +163,7 @@ header {
             }
         }
     }
-    .book-container {
+    .device-container {
         max-width: 300px;
         margin: 0 auto 100px;
         .screen img {
@@ -220,10 +171,11 @@ header {
         }
     }
     @media (min-width: 768px) {
+        min-height: 100%;
         .header-content {
             text-align: left;
             padding: 0;
-            height: 500px;
+            height: 100vh;
             .header-content-inner {
                 max-width: none;
                 margin: 0;
@@ -235,7 +187,7 @@ header {
                 }
             }
         }
-        .book-container {
+        .device-container {
             max-width: none;
             max-height: calc(100vh - 100px);
             margin: 100px auto 0;
@@ -297,12 +249,12 @@ section.features {
         }
         margin-bottom: 100px;
     }
-    .book-container,
+    .device-container,
     .feature-item {
         max-width: 300px;
         margin: 0 auto;
     }
-    .book-container {
+    .device-container {
         margin-bottom: 100px;
         @media(min-width: 992px) {
             margin-bottom: 0;
@@ -323,7 +275,7 @@ section.features {
         }
     }
     @media(min-width: 992px) {
-        .book-container,
+        .device-container,
         .feature-item {
             max-width: none;
         }
@@ -331,11 +283,17 @@ section.features {
 }
 
 section.cta {
+    background: url("../img/bg.png"), @theme-secondary; /* fallback for old browsers */
+    background: url("../img/bg.png"), -webkit-linear-gradient(to left, @theme-secondary , @theme-tertiary); /* Chrome 10-25, Safari 5.1-6 */
+    background: url("../img/bg.png"), linear-gradient(to left, @theme-secondary , @theme-tertiary); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     position: relative;
-    .background-cover;
-    background-position: center;
-    background-image: url('../img/bg-cta.jpg');
-    padding: 250px 0;
+
+    text-align: center;
+    .device-container, 
+    .feature-item {
+        max-width: 300px;
+        margin: 0 auto;
+    }
     .cta-content {
         position: relative;
         z-index: 1;
@@ -343,7 +301,6 @@ section.cta {
             margin-top: 0;
             margin-bottom: 25px;
             color: white;
-            max-width: 450px;
             font-size: 50px;
         }
         @media (min-width: 768px) {
@@ -355,7 +312,7 @@ section.cta {
     .overlay {
         height: 100%;
         width: 100%;
-        background-color: fade(black, 50%);
+        background-color: fade(black, 20%);
         position: absolute;
         top: 0;
         left: 0;
@@ -363,12 +320,13 @@ section.cta {
 }
 
 section.contact {
+
     text-align: center;
     h2 {
         margin-top: 0;
         margin-bottom: 25px;
         i {
-            color: @brand-google-plus;
+            color: white;
         }
     }
     ul.list-social {
@@ -527,4 +485,13 @@ body {
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
+}
+
+.navbar-brand > img,
+.app-icon{
+  margin-top:-3px;
+  width:30px;
+  height:30px;
+  border-radius: 3px;
+  display:inline;
 }
